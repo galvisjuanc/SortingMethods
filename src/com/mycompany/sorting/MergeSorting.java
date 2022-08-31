@@ -31,7 +31,8 @@ public class MergeSorting {
         }
     }
 
-    /** Método vacío que no retorna nada. Requiere un arreglo y los índices del arreglo
+    /**
+     * Método vacío que no retorna nada. Requiere un arreglo y los índices del arreglo
      * Si derecha es menor o igual a la izquierda, hace un retorno del método. Es decir que llegó al centro
      * Variable mid que será el centro del arreglo
      * Se hace polimorfismo para usar el método ya creado y así, con este método se divide hasta terminar con la mitad del primer arreglo
@@ -45,35 +46,37 @@ public class MergeSorting {
         mergeSort(array, mid+1, right);
         merge(array, left, mid, right);
     }
-
+    /**
+     * Metodo que hace el merge sorting
+     */
     public static void merge(int[] array, int left, int mid, int right){
         // Calculando longitudes
-        int lengthLeft = mid - left + 1;
-        int lengthRight = right - mid;
+        int lengthLeft = mid - left + 1;                //variable longitud arreglo izquierda
+        int lengthRight = right - mid;                  //variable longitud arreglo derecha
 
         // creating temporary subarrays
-        int leftArray[] = new int [lengthLeft];
+        int leftArray[] = new int [lengthLeft];         //arreglos temporales del tamaño anterior
         int rightArray[] = new int [lengthRight];
 
         // copying our sorted subarrays into temporaries
-        for (int i = 0; i < lengthLeft; i++)
+        for (int i = 0; i < lengthLeft; i++)            //Se almacena en el arreglo temporal, la posición del arreglo izquierdo
             leftArray[i] = array[left+i];
-        for (int i = 0; i < lengthRight; i++)
+        for (int i = 0; i < lengthRight; i++)           //Se almacena en el arreglo temporal, la posición del arreglo derecho
             rightArray[i] = array[mid+i+1];
 
         // iterators containing current index of temp subarrays
-        int leftIndex = 0;
-        int rightIndex = 0;
+        int leftIndex = 0;                              //indice izquierdo de los arreglos temporales
+        int rightIndex = 0;                             //indice derecho del arreglo temporal
 
         // copying from leftArray and rightArray back into array
-        for (int i = left; i < right + 1; i++) {
+        for (int i = left; i < right + 1; i++) {        //uniendo lo separado en un arreglo
             // if there are still uncopied elements in R and L, copy minimum of the two
-            if (leftIndex < lengthLeft && rightIndex < lengthRight) {
-                if (leftArray[leftIndex] < rightArray[rightIndex]) {
+            if (leftIndex < lengthLeft && rightIndex < lengthRight) {       //Se revisa si esto se cumple para mover los valores
+                if (leftArray[leftIndex] < rightArray[rightIndex]) {        //Si esto se cumple, se modifica el arreglo principal con el valor del arreglo temporal
                     array[i] = leftArray[leftIndex];
                     leftIndex++;
                 }
-                else {
+                else {                                  // Si no se cumple, se modifica el arreglo con el valor de la derecha
                     array[i] = rightArray[rightIndex];
                     rightIndex++;
                 }
