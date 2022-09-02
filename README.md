@@ -18,7 +18,7 @@ Métodos Iterativos: Usa ciclos y sentencias que hacen que el vector pueda ser o
 Métodos Recursivos: Son más complejos y requieren de mayor atención y conocimiento para ser entendidos. Son rápidos y 
 efectivos porque usan la técnica "Divide y Vencerás", que consiste en dividir un problema grande en varios pequeños 
 para que sea más fácil resolverlos. Mediante llamadas recursivas a sí mismos, es posible que el tiempo de ejecución y de 
-ordenación sea más óptimo.
+ordenación sea más óptimo. Importante usar métodos fuera del main para realizar las funciones y dividir también el código.
 
 1. Por Mezclas (Merge)
 2. Rápido (Quicksort)
