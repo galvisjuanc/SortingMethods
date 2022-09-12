@@ -22,3 +22,5 @@ ordenación sea más óptimo. Importante usar métodos fuera del main para reali
 
 1. Por Mezclas (Merge)
 2. Rápido (Quicksort)
+
+Página: https://github.com/TheAlgorithms/Java
