@@ -1,3 +1,35 @@
+El método de ordenación Shell fue uno de los primeros alforitmos de ordenamiento en romper la barrera del tiempo cuadrático.
+Es una mejora del método de inserción directa, utilizado cuando el array tiene un gran número de elementos.
+Cualquier algoritmo de ordenación que intercambia elementos adyacentes (como los algoritmos burbuja, selección o inserción), tiene un tiempo
+promedio de ejecución de orden cuadrático (n2). El método Shell mejora este tiempo comparando cada elemento con el que está a un cierto número de posiciónes
+llamado salto, en lugar de compararlo con el que está justo a su lado. Este salto es constante, y su valor inicial es N/2 (siendo n el número de
+elementos, y siendo división entera).
+
+Se van dando pasadas con el mismo salto hasta que en una pasada, no se intercambie ningún elemento del sitio. Entonces el salto se reduce a la mitad, y
+se vuelven a dar pasadas hasta que no se intercambie ningún elemento, y así sucesivamente hasta que el salto vale 1.
+
+public static void shell(int A[]) {
+
+        int salto, aux, i;
+        boolean cambios;
+
+        for (salto = A.length / 2; salto != 0; salto /= 2) {
+            cambios = true;
+            while (cambios) {   // Mientras se intercambie algún elemento
+                cambios = false;
+                for (i = salto; i < A.length; i++)   // se da una pasada
+                {
+                    if (A[i - salto] > A[i]) {       // y si están desordenados
+                        aux = A[i];                  // se reordenan
+                        A[i] = A[i - salto];
+                        A[i - salto] = aux;
+                        cambios = true;              // y se marca como cambio.
+                    }
+                }
+            }
+        }
+}
+
 About this Algorithm
 
 Problem Statement
